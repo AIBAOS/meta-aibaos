@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 主渐变色 -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+    
+    <!-- AI 光晕效果 -->
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8"/>
+      <stop offset="70%" style="stop-color:#00d4ff;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:0"/>
+    </radialGradient>
+    
+    <!-- 阴影滤镜 -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景圆形 -->
+  <circle cx="256" cy="256" r="240" fill="url(#mainGradient)" filter="url(#shadow)"/>
+  
+  <!-- AI 核心光晕 -->
+  <circle cx="256" cy="180" r="60" fill="url(#glowGradient)"/>
+  
+  <!-- AI 大脑/芯片图标 -->
+  <g fill="#ffffff">
+    <!-- 中心芯片 -->
+    <rect x="226" y="150" width="60" height="60" rx="8" fill="#ffffff" opacity="0.95"/>
+    
+    <!-- 芯片连接线 -->
+    <g stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.8">
+      <!-- 上方连接 -->
+      <line x1="256" y1="150" x2="256" y2="125"/>
+      <!-- 下方连接 -->
+      <line x1="256" y1="210" x2="256" y2="235"/>
+      <!-- 左侧连接 -->
+      <line x1="226" y1="170" x2="205" y2="170"/>
+      <line x1="226" y1="190" x2="205" y2="190"/>
+      <!-- 右侧连接 -->
+      <line x1="286" y1="170" x2="307" y2="170"/>
+      <line x1="286" y1="190" x2="307" y2="190"/>
+      <!-- 左上斜线 -->
+      <line x1="232" y1="156" x2="215" y2="139"/>
+      <!-- 右上斜线 -->
+      <line x1="280" y1="156" x2="297" y2="139"/>
+      <!-- 左下斜线 -->
+      <line x1="232" y1="204" x2="215" y2="221"/>
+      <!-- 右下斜线 -->
+      <line x1="280" y1="204" x2="297" y2="221"/>
+    </g>
+    
+    <!-- 芯片内部电路点 -->
+    <circle cx="246" cy="170" r="4" fill="#667eea"/>
+    <circle cx="266" cy="170" r="4" fill="#667eea"/>
+    <circle cx="246" cy="190" r="4" fill="#667eea"/>
+    <circle cx="266" cy="190" r="4" fill="#667eea"/>
+    <circle cx="256" cy="180" r="6" fill="#00d4ff"/>
+  </g>
+  
+  <!-- NAS 存储单元图标 -->
+  <g fill="#ffffff" opacity="0.9">
+    <!-- 第一层硬盘 -->
+    <rect x="140" y="280" width="232" height="35" rx="6" fill="#ffffff"/>
+    <rect x="148" y="288" width="160" height="19" rx="3" fill="#667eea" opacity="0.3"/>
+    <circle cx="354" cy="297" r="8" fill="#00d4ff"/>
+    
+    <!-- 第二层硬盘 -->
+    <rect x="140" y="325" width="232" height="35" rx="6" fill="#ffffff"/>
+    <rect x="148" y="333" width="140" height="19" rx="3" fill="#667eea" opacity="0.3"/>
+    <circle cx="354" cy="342" r="8" fill="#00d4ff"/>
+    
+    <!-- 第三层硬盘 -->
+    <rect x="140" y="370" width="232" height="35" rx="6" fill="#ffffff"/>
+    <rect x="148" y="378" width="180" height="19" rx="3" fill="#667eea" opacity="0.3"/>
+    <circle cx="354" cy="387" r="8" fill="#00d4ff"/>
+  </g>
+  
+  <!-- 网络连接线条 -->
+  <g stroke="#ffffff" stroke-width="2" stroke-dasharray="4,4" opacity="0.5">
+    <line x1="256" y1="235" x2="256" y2="280"/>
+    <line x1="200" y1="245" x2="160" y2="280"/>
+    <line x1="312" y1="245" x2="352" y2="280"/>
+  </g>
+  
+  <!-- 底部文字区域 -->
+  <text x="256" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#ffffff">
+    AIBAO
+  </text>
+  <text x="256" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#ffffff" opacity="0.8">
+    SMART NAS SYSTEM
+  </text>
+</svg>
