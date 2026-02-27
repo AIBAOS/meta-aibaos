@@ -1,0 +1,104 @@
+# Yocto build artifacts
+build/
+tmp/
+sstate-cache/
+downloads/
+pseudo/
+
+# BitBake
+*.pyc
+*.pyo
+*~
+.*.swp
+*.orig
+*.rej
+
+# Recipe metadata
+*.md5sum
+*.sig
+*.siginfo
+
+# Build logs
+log.do_*
+log.do_*.task_order
+
+# Patch files
+*.patch
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# IDE and editor files
+.idea/
+.vscode/
+*.sublime-*
+.project
+.cproject
+.pydevproject
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Distribution archives
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.zip
+*.7z
+
+# Binary images (keep source, ignore generated)
+*.wic
+*.wic.xz
+*.img
+*.img.xz
+*.iso
+*.bin
+
+# OEQA
+testimage/
+ptest/
+
+# SDK
+sdk/
+
+# Documentation build
+docs/_build/
+docs/.doctrees/
+
+# Python virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Node.js (for web UI development)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# TypeScript
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+.coverage
+*.cover
+.hypothesis/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+
+# Deployment
+.deploy/

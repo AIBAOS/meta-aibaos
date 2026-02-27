@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AIBAO NAS Logo - Small/Icon Version -->
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <circle cx="64" cy="64" r="60" fill="url(#grad)"/>
+  
+  <!-- AI 核心圆 -->
+  <circle cx="64" cy="42" r="16" fill="#ffffff" opacity="0.2"/>
+  
+  <!-- 芯片图标 -->
+  <rect x="52" y="30" width="24" height="24" rx="4" fill="#ffffff"/>
+  <circle cx="58" cy="38" r="2" fill="#667eea"/>
+  <circle cx="70" cy="38" r="2" fill="#667eea"/>
+  <circle cx="58" cy="46" r="2" fill="#667eea"/>
+  <circle cx="70" cy="46" r="2" fill="#667eea"/>
+  <circle cx="64" cy="42" r="3" fill="#00d4ff"/>
+  
+  <!-- 存储单元 -->
+  <rect x="28" y="68" width="72" height="12" rx="3" fill="#ffffff"/>
+  <rect x="28" y="84" width="72" height="12" rx="3" fill="#ffffff"/>
+  <circle cx="90" cy="74" r="3" fill="#00d4ff"/>
+  <circle cx="90" cy="90" r="3" fill="#00d4ff"/>
+  
+  <!-- 连接线 -->
+  <line x1="64" y1="54" x2="64" y2="68" stroke="#ffffff" stroke-width="2" stroke-dasharray="2,2" opacity="0.6"/>
+</svg>
