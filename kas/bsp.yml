@@ -1,0 +1,41 @@
+# kas configuration for meta-aibaos BSP (Board Support Package)
+# Extension to add hardware-specific support
+
+header:
+  version: 21
+
+# Include base build configuration
+includes:
+  - kas/build.yml
+
+# BSP-specific machine (override with KAS_MACHINE environment variable)
+machine: qemux86-64
+
+# Local configuration for BSP
+local_conf_header:
+  meta-aibaos-bsp: |
+    # BSP-specific configuration
+    TARGET_TOOLCHAIN = "pokysdk"
+    
+    # Enable extra BSP features
+    DISTRO_FEATURES:append = " usbhost cvs"
+    
+    # Hardware-specific settings
+    MACHINE_FEATURES = "apm font usbgadget wm97xx"
+    
+    # Kernel configuration
+    KERNEL_FEATURES:append = " features/kernel/kernel-features.scc"
+    
+    # Debug features for development
+    IMAGE_FEATURES:append = " debug-tweaks"
+
+# BSP repositories (example - uncomment and configure for your hardware)
+# repos:
+#   meta-intel:
+#     url: https://git.yoctoproject.org/meta-intel
+#     branch: scarthgap
+#     layers:
+#       meta-intel: null
+#       meta-intel-bsp: null
+
+#   meta-oe: null  # Already defined in build.yml
