@@ -11,6 +11,38 @@ meta-aibaos 是基于 Yocto Project 构建的 AIBAO NAS 系统的核心层，提
 - 存储管理工具
 - 系统优化配置
 
+## 核心功能
+
+- **存储管理**: LVM2 逻辑卷管理、RAID 阵列 (mdadm)、S.M.A.R.T 磁盘监控
+- **文件共享**: Samba (SMB/CIFS)、NFS 网络文件系统
+- **系统管理**: systemd 初始化、用户权限管理 (sudo/shadow)
+- **网络工具**: SSH 远程访问、网络配置 (iproute2)、数据传输 (rsync/curl/wget)
+- **系统监控**: htop 进程监控、smartmontools 磁盘健康检测
+- **系统信息**: fastfetch 系统信息展示
+
+## 镜像组成
+
+### 基础系统
+- Yocto Project (Scarthgap) + OpenEmbedded-Core
+- 定制化 aibaos 发行版配置
+- x86-64 架构支持
+
+### 核心组件
+- **aibaos-nas**: NAS 核心服务包 (systemd 服务单元)
+- **core-image-aibaos**: 最小化 NAS 系统镜像
+
+### 主要软件包
+| 类别 | 组件 |
+|------|------|
+| 存储 | lvm2, mdadm, smartmontools |
+| 共享 | samba, nfs-utils, rsync |
+| 网络 | openssh, curl, wget, net-tools, iproute2 |
+| 系统 | sudo, shadow, htop, fastfetch |
+
+### 层依赖
+- poky (meta, meta-poky, meta-yocto-bsp)
+- meta-openembedded (meta-oe, meta-networking, meta-python)
+
 ## 依赖
 
 - Yocto Project (Scarthgap)
@@ -19,14 +51,29 @@ meta-aibaos 是基于 Yocto Project 构建的 AIBAO NAS 系统的核心层，提
 
 ## 快速开始
 
+### 环境要求
+
+- Ubuntu 22.04+ / Debian 12+ / Fedora 38+
+- 最低 50GB 可用磁盘空间 (推荐 100GB+)
+- 最低 8GB RAM (推荐 16GB+)
+- Python 3.8+
+- git, wget, tar, gcc 等基础工具
+
 ### 使用 kas (推荐)
 
 ```bash
-# 安装 kas
+# 1. 安装 kas
 pipx install kas
 
-# 构建镜像
+# 2. 克隆仓库
+git clone https://github.com/AIBAOS/meta-aibaos.git
+cd meta-aibaos
+
+# 3. 构建镜像 (首次构建约 30-60 分钟)
 kas build kas.yml
+
+# 4. 构建产物位置
+# build/tmp/deploy/images/x86-64/
 ```
 
 ### 配置本地镜像（可选）
@@ -43,13 +90,13 @@ vim kas/local.yml
 
 详见 `kas/local.yml.example` 中的配置说明。
 
-### 使用 bitbake ( legacy )
+### 使用 bitbake (传统方式)
 
 ```bash
-# 添加层到构建环境
+# 1. 添加层到构建环境
 bitbake-layers add-layer meta-aibaos
 
-# 构建镜像
+# 2. 构建镜像
 bitbake core-image-aibaos
 ```
 
