@@ -1,6 +1,9 @@
 # Kas lockfile (generate with kas lock)
 kas/lock.yml
 
+# Local configuration (user-specific)
+kas/local.yml
+
 # Documentation intermediates
 *.json
 

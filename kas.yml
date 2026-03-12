@@ -48,7 +48,7 @@ env:
   SSTATE_MIRRORS: |
     file://.* http://192.168.1.40:50771/sstate-cache/PATH
 
-# Build attestation (optional, for CI/CD)
-# build_attestation:
-#   provenance:
-#     include_build_info: true
+# Local mirror configuration (optional)
+# Create kas/local.yml to configure local mirrors:
+#   PREMIRRORS: "git://.*/.* http://your-mirror:port/downloads/"
+#   SSTATE_MIRRORS: "file://.* http://your-mirror:port/sstate-cache/PATH"

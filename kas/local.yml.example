@@ -1,0 +1,14 @@
+# Local mirror configuration example
+# Copy this file to kas/local.yml and configure your local mirror address
+
+# PREMIRRORS - for fetching source code
+PREMIRRORS: |
+  git://.*/.* http://192.168.1.40:50771/downloads/
+  https://.*/.* http://192.168.1.40:50771/downloads/
+  http://.*/.* http://192.168.1.40:50771/downloads/
+
+# SSTATE_MIRRORS - for fetching build artifacts
+SSTATE_MIRRORS: |
+  file://.* http://192.168.1.40:50771/sstate-cache/PATH
+
+# Replace 192.168.1.40:50771 with your local mirror address

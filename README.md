@@ -29,6 +29,20 @@ pipx install kas
 kas build kas.yml
 ```
 
+### 配置本地镜像（可选）
+
+如果需要使用本地镜像服务器加速构建，创建 `kas/local.yml` 文件：
+
+```bash
+# 复制示例配置
+cp kas/local.yml.example kas/local.yml
+
+# 编辑 kas/local.yml，填入你的本地镜像地址
+vim kas/local.yml
+```
+
+详见 `kas/local.yml.example` 中的配置说明。
+
 ### 使用 bitbake ( legacy )
 
 ```bash
