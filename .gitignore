@@ -1,0 +1,11 @@
+# Kas lockfile (generate with kas lock)
+kas/lock.yml
+
+# Documentation intermediates
+*.json
+
+# Build artifacts
+build/
+tmp/
+sstate-cache/
+downloads/
