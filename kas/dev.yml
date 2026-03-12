@@ -1,0 +1,38 @@
+# kas configuration for meta-aibaos development environment
+# Creates an interactive shell with full build environment
+
+header:
+  version: 21
+
+# Include the base build configuration
+includes:
+  - kas/build.yml
+
+# Interactive shell configuration
+defaults:
+  task: none  # Don't trigger build automatically
+
+# Environment variables for development
+env:
+  BB_NUMBER_THREADS: "4"
+  PARALLEL_MAKE: "-j4"
+  TMPDIR: null
+  DL_DIR: null
+  SSTATE_DIR: null
+
+# Build configuration (same as build.yml)
+machine: x86-64
+distro: aibaos
+target: core-image-aibaos
+
+local_conf_header:
+  meta-aibaos: |
+    # Development configuration
+    DISTRO_FEATURES:append = " systemd debug"
+    IMAGE_FEATURES:append = " package-management ssh-server-openssh"
+    
+    # Enable sources for debugging
+    BBINCLUDELOGS = "1"
+    
+    # Verbose output
+    OECORE_DISTRO_VERSION = "0.0.1-dev"

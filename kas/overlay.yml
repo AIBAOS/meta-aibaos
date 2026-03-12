@@ -1,0 +1,67 @@
+# kas configuration for meta-aibaos' overlay (custom additions)
+# For additional custom layers and configurations
+
+header:
+  version: 21
+
+# Include base build configuration
+includes:
+  - kas/build.yml
+
+# Custom repository definitions
+repos:
+  # meta-aibaos (current layer)
+  meta-aibaos: null
+
+  # Poky base
+  poky:
+    url: https://git.yoctoproject.org/git/poky
+    branch: scarthgap
+    layers:
+      meta: null
+      meta-poky: null
+      meta-yocto-bsp: null
+
+  # OpenEmbedded
+  meta-openembedded:
+    url: https://git.openembedded.org/meta-openembedded
+    branch: scarthgap
+    layers:
+      meta-oe: null
+      meta-networking: null
+      meta-python: null
+
+# Additional custom layers (example - uncomment and modify)
+#   meta-custom:
+#     url: https://github.com/yourorg/meta-custom.git
+#     branch: master
+#     layers:
+#       meta-custom: null
+
+# Layer priority configuration
+# Higher priority layers override lower ones
+bblayers_conf_header:
+  meta-aibaos-override: |
+    LAYERDEPENDS_meta-aibaos = "core meta-poky meta-yocto-bsp meta-oe"
+    LAYERDEPENDS_meta-aibaos += "meta-networking meta-python"
+    
+    # Layer priority (optional, default is auto-calculated)
+    # BBFILE_PRIORITY_meta-aibaos = "10"
+
+# Local configuration
+local_conf_header:
+  meta-aibaos-override: |
+    # Override or extend base configuration here
+    # This file is processed after kas.yml
+    
+    # Example: Override package version
+    # PREFERRED_VERSION_python3 = "3.12%"
+    
+    # Example: Add custom recipes directory
+    # BBFILES_DYNAMIC += "${LAYERDIR}/meta-custom/recipes-*/*/*.bb"
+    
+    # Custom image features
+    IMAGE_FEATURES:append = " tools-debug"
+    
+    # Add custom tools
+    IMAGE_INSTALL:append = " strace gdb"

@@ -1,0 +1,39 @@
+# Build configuration for meta-aibaos minimal system
+# Place this file in meta-aibaos/kas/ directory
+
+header:
+  version: 21
+
+# Machine configuration for x86-64
+machine: x86-64
+distro: aibaos
+
+# Target image to build
+target: core-image-aibaos
+
+# Local configuration headers (appended to local.conf)
+local_conf_header:
+  meta-aibaos: |
+    # AIBAO NAS System Configuration
+    DISTRO_FEATURES:append = " systemd"
+    DISTRO_FEATURES_BACKFILL_CONSIDERED:append = " sysvinit"
+    INIT_MANAGER = "systemd"
+    
+    # Package management
+    IMAGE_FSTYPES = "ext4 img"
+    
+    # Build optimization
+    INHERIT += "rm_work"
+    
+    # Debug symbols
+    DEBUG_BUILD = "1"
+    REMOVED_GDB_SERVER = "0"
+
+# Additional layer dependencies (can be extended for BSP)
+# layerdependencies_meta-aibaos = "core meta-poky meta-yocto-bsp meta-oe"
+
+# Workspace directory (override with KAS_WORK_DIR environment variable)
+# work_dir: /path/to/kas-work
+
+# Build directory (override with KAS_BUILD_DIR environment variable)
+# build_dir: /path/to/build

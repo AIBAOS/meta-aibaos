@@ -1,0 +1,41 @@
+# kas configuration for meta-aibaos multiconfig builds
+# Enables building multiple configurations simultaneously
+
+header:
+  version: 21
+
+# Include base build configuration
+includes:
+  - kas/build.yml
+
+# Multiconfig setup
+defaults:
+  distro: aibaos
+
+# Machine configurations
+machine: x86-64
+target: core-image-aibaos
+
+# Local configuration with multiconfig support
+local_conf_header:
+  meta-aibaos-mc: |
+    # Enable multiconfig
+    BBMULTICONFIG = "meta-aibaos-minimal meta-aibaos-full"
+    
+    # Common configuration for all multiconfig
+    DISTRO_FEATURES:append = " systemd"
+    IMAGE_FSTYPES = "ext4"
+
+# Multiconfig specific configurations
+bblayers_conf_header:
+  meta-aibaos-mc: |
+    # Multiconfig layers (added automatically by kas)
+    #.mc.meta-aibaos-minimal:
+    #   meta-aibaos-minimal
+    
+    #.mc.meta-aibaos-full:
+    #   meta-aibaos-full
+
+# Example: Define additional targets in command line
+# kas build kas.yml:kas/multiconfig.yml --target mc:core-image-minimal
+# kas build kas.yml:kas/multiconfig.yml --target mc:core-image-full

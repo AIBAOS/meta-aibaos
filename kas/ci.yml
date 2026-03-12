@@ -1,0 +1,61 @@
+# kas configuration for meta-aibaos CI/CD pipeline
+# Optimized for reproducible builds in containerized environments
+
+header:
+  version: 21
+
+# Include base build configuration
+includes:
+  - kas/build.yml
+
+# Repository lock file support (use kas lock to generate)
+# lockfile: kas/build.lock.yml
+
+# CI-specific configuration
+defaults:
+  machine: x86-64
+  distro: aibaos
+  target: core-image-aibaos
+  task: build
+
+# Environment variables for CI
+env:
+  CI: "true"
+  BB_NUMBER_THREADS: null
+  PARALLEL_MAKE: null
+  SSTATE_MIRRORS: null
+  DL_DIR: null
+  SSTATE_DIR: null
+
+# Local configuration for CI builds
+local_conf_header:
+  meta-aibaos-ci: |
+    # CI build configuration
+    # Use shared sstate cache for faster rebuilds
+    # Set SSTATE_MIRRORS in environment to use shared cache
+    
+    # Clean build environment
+    INHERIT += "ccache"
+    
+    # Build profiling (optional, enabled for debugging)
+    # BB_BUILDSTATS = "1"
+    
+    # Strict version checking
+    ASSUME_PROVIDED += "virtual/libgl1"
+    
+    # Disable device governance (for CI containers)
+    KERNEL_FEATURES:append = " features/device-tree/device-tree.scc"
+
+# Build attestation for reproducibility
+build_attestation:
+  provenance:
+    include_build_info: true
+    include_env_vars: true
+    include_repos: true
+
+# Container support (for kas-container usage)
+build_system: openembedded
+
+# Workspace directories (override in CI environment)
+# work_dir: ${CI_WORKSPACE}/kas-work
+# build_dir: ${CI_WORKSPACE}/build

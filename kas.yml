@@ -1,0 +1,48 @@
+# kas configuration file for meta-aibaos
+# Version 21 (latest as of kas 5.2)
+
+header:
+  version: 21
+
+# Machine and distro configuration
+machine: x86-64
+distro: aibaos
+
+# Repository definitions
+repos:
+  # Current layer (meta-aibaos) - included from local directory
+  meta-aibaos: null
+
+  # Yocto Project base layers
+  poky:
+    url: https://git.yoctoproject.org/git/poky
+    branch: scarthgap
+    layers:
+      meta: null
+      meta-poky: null
+      meta-yocto-bsp: null
+
+  # OpenEmbedded layers
+  meta-openembedded:
+    url: https://git.openembedded.org/meta-openembedded
+    branch: scarthgap
+    layers:
+      meta-oe: null
+      meta-networking: null
+      meta-python: null
+
+# Build configuration
+defaults:
+  distro: aibaos
+  machine: x86-64
+  target: core-image-aibaos
+
+# Environment variables to forward
+env:
+  BB_NUMBER_THREADS: null
+  PARALLEL_MAKE: null
+
+# Build attestation (optional, for CI/CD)
+# build_attestation:
+#   provenance:
+#     include_build_info: true
