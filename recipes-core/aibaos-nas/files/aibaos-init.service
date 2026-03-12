@@ -1,0 +1,14 @@
+[Unit]
+Description=AIBAOS System Initialization Service
+After=local-fs.target
+Before=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/aibaos-init
+RemainAfterExit=yes
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

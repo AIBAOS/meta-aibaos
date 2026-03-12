@@ -1,0 +1,14 @@
+[Unit]
+Description=AIBAOS Storage Management Service
+After=local-fs.target aibaos-init.service
+Wants=aibaos-init.service
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/aibaos-storage
+Restart=on-failure
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
