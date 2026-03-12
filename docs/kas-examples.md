@@ -11,7 +11,7 @@ kas --version
 ### 2. 查看配置
 
 ```bash
-cd /home/node/.openclaw/workspace/silijian/meta-aibaos
+cd /path/to/meta-aibaos
 kas dump kas.yml
 ```
 

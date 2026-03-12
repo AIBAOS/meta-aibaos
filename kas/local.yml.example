@@ -3,12 +3,12 @@
 
 # PREMIRRORS - for fetching source code
 PREMIRRORS: |
-  git://.*/.* http://192.168.1.40:50771/downloads/
-  https://.*/.* http://192.168.1.40:50771/downloads/
-  http://.*/.* http://192.168.1.40:50771/downloads/
+  git://.*/.* http://YOUR_MIRROR_IP:PORT/downloads/
+  https://.*/.* http://YOUR_MIRROR_IP:PORT/downloads/
+  http://.*/.* http://YOUR_MIRROR_IP:PORT/downloads/
 
 # SSTATE_MIRRORS - for fetching build artifacts
 SSTATE_MIRRORS: |
-  file://.* http://192.168.1.40:50771/sstate-cache/PATH
+  file://.* http://YOUR_MIRROR_IP:PORT/sstate-cache/PATH
 
-# Replace 192.168.1.40:50771 with your local mirror address
+# Replace YOUR_MIRROR_IP:PORT with your local mirror address

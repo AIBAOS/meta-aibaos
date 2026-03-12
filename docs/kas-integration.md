@@ -287,7 +287,7 @@ docker run -it --rm ghcr.io/siemens/kas/kas:5.2 kas --version
 
 ```bash
 # 检查配置语法
-cd /home/node/.openclaw/workspace/silijian/meta-aibaos
+cd /path/to/meta-aibaos
 kas dump kas.yml
 ```
 

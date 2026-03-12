@@ -41,14 +41,3 @@ defaults:
 env:
   BB_NUMBER_THREADS: null
   PARALLEL_MAKE: null
-  PREMIRRORS: |
-    git://.*/.* http://192.168.1.40:50771/downloads/
-    https://.*/.* http://192.168.1.40:50771/downloads/
-    http://.*/.* http://192.168.1.40:50771/downloads/
-  SSTATE_MIRRORS: |
-    file://.* http://192.168.1.40:50771/sstate-cache/PATH
-
-# Local mirror configuration (optional)
-# Create kas/local.yml to configure local mirrors:
-#   PREMIRRORS: "git://.*/.* http://your-mirror:port/downloads/"
-#   SSTATE_MIRRORS: "file://.* http://your-mirror:port/sstate-cache/PATH"
