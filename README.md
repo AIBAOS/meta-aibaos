@@ -37,13 +37,14 @@ meta-aibaos/
 ├── recipes-support/   # 支持组件配方
 ├── docs/              # 项目文档
 ├── CONTRIBUTING.md    # 贡献指南
-└── WORKFLOW.md        # 工作流程
+└── docs/
+    └── WORKFLOW.md    # 工作流程
 ```
 
 ## 文档
 
 - [贡献指南](CONTRIBUTING.md) - Commit 规范、代码审查流程
-- [工作流程](docs/WORKFLOW.md) - 团队协作、审核机制
+- [工作流程](WORKFLOW.md) - 团队协作、审核机制
 
 ## 贡献
 

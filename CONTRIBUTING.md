@@ -60,7 +60,7 @@ BREAKING CHANGE: 移除了废弃的回调参数
 ## 代码审查流程
 
 1. **提交前**：确保通过本地测试和代码风格检查
-2. **提交 PR**：填写 PR 模板，关联 Issue
+2. **提交 PR**：填写 PR 模板 `.github/PULL_REQUEST_TEMPLATE.md`，关联 Issue
 3. **审核**：至少一位审核者通过
 4. **合并**：Squash merge，使用规范 commit message
 
@@ -70,3 +70,16 @@ BREAKING CHANGE: 移除了废弃的回调参数
 - `develop` - 开发分支
 - `feature/*` - 功能分支
 - `fix/*` - 修复分支
+
+## 分支命名规范
+
+| 类型 | 格式 | 示例 |
+|------|------|------|
+| 功能 | `feature/<描述>` | `feature/user-auth` |
+| 修复 | `fix/<描述>` | `fix/login-bug` |
+| 文档 | `docs/<描述>` | `docs/readme-update` |
+| 重构 | `refactor/<描述>` | `refactor/core-utils` |
+
+## PR 模板
+
+PR 模板位于 `.github/PULL_REQUEST_TEMPLATE.md`，提交时自动加载。
